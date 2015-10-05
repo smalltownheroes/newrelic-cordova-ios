@@ -15,6 +15,7 @@
 - (void)pluginInitialize
 {
     NSString* applicationToken = [self.commandDelegate.settings objectForKey:[@"NewRelicApplicationToken" lowercaseString]];
+    [NewRelicAgent enableCrashReporting:NO];
     [NewRelic disableFeatures:NRFeatureFlag_InteractionTracing];
     [NewRelicAgent startWithApplicationToken:applicationToken];
 }
